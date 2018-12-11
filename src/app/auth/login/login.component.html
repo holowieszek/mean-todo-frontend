@@ -1,0 +1,29 @@
+<mat-card>
+    <form [formGroup]="form" (submit)="onLogin()">
+      <mat-form-field>
+        <input
+          name="email"
+          matInput
+          type="email"
+          placeholder="E-mail"
+          formControlName="email"
+          email>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          name="password"
+          matInput
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          password>
+      </mat-form-field>
+      <div>
+        <a routerLink="/signup">Sign Up</a>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit">Login</button>
+    </form>
+  </mat-card>

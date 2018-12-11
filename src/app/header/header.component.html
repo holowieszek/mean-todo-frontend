@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" *ngIf="userIsAuthenticated">
+  <a routerLink="/tasks">My application</a>
+  <span class="fill-space"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a routerLink="/create">Add post</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+        <a (click)="onLogout()">Logout</a>
+      </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a routerLink="/signup">Register</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a routerLink="/">Login</a>
+    </li>
+  </ul>
+</mat-toolbar>

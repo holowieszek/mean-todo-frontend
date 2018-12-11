@@ -1,0 +1,28 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="onSaveTask()">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="title"
+        placeholder="Title">
+        <mat-error *ngIf="!!f.title.invalid">Title is invalid!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Description"></textarea>
+        <mat-error *ngIf="!!f.description.invalid">Description is invalid!</mat-error>
+    </mat-form-field>
+    <div *ngIf="imagesTest">
+      <div *ngFor="let image of imagesTest">
+        <img src="http://localhost:8080/files/{{ image.filename }}" alt="">
+      </div>
+    </div>
+    <span class="fill-space"></span>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">Save Post</button>
+  </form>
+</mat-card>

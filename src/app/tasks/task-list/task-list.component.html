@@ -1,0 +1,19 @@
+<mat-accordion multi="true">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Search" [(ngModel)]="search" autocomplete="off">
+      <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchBox()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-expansion-panel *ngFor="let task of tasks | task: search">
+      <mat-expansion-panel-header>
+        {{ task.title }}
+      </mat-expansion-panel-header>
+      <p>{{ task.description }}</p>
+      <mat-action-row>
+        <a mat-button color="primary" [routerLink]="['/edit', task.id]">Edit</a>
+        <button mat-button color="warn" (click)="onDelete(task.id)">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="tasks.length <= 0">No tasks added yet!</p>
